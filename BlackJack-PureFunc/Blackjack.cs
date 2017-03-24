@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlackJack_PureFunc
+namespace BlackJack_PureFunc.logic
 {
     public static class Blackjack
     {
@@ -35,6 +35,11 @@ namespace BlackJack_PureFunc
             var cardToReturn = deck[0];
             deck.RemoveAt(0);
             return (deck, cardToReturn);
+        }
+
+       public static int GetHandTotal (List<Card> hands)
+        {
+            return hands.Sum(card => card.GetCardValue());
         }
     }
 }

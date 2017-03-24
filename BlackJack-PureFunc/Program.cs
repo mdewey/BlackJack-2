@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BlackJack_PureFunc.display;
+using BlackJack_PureFunc.logic;
 
 namespace BlackJack_PureFunc
 {
@@ -32,15 +34,15 @@ namespace BlackJack_PureFunc
 
             Display.ShowDealerHand(dealerHand);
 
-            Display.ShowPlayerHand(userHand);
+            Display.ShowPlayerHand(userHand, Blackjack.GetHandTotal(userHand));
             
             var hit = Display.AskPlayerToHit();
 
-            while (hit)
+            while (hit && Blackjack.GetHandTotal(userHand) < 21)
             {
                 (deck, cardSlot) = Blackjack.DealCard(deck);
                 userHand.Add(cardSlot);
-                Display.ShowPlayerHand(userHand);
+                Display.ShowPlayerHand(userHand, Blackjack.GetHandTotal(userHand));
                 hit = Display.AskPlayerToHit();
             }
         }

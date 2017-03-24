@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlackJack_PureFunc
+namespace BlackJack_PureFunc.display
 {
     public class Display
     {
@@ -24,11 +24,10 @@ namespace BlackJack_PureFunc
             }
         }
 
-        private static void DisplayHandTotal(List<Card> hand)
+        private static void DisplayHandTotal(List<Card> hand, int handTotal)
         {
             Console.Write("Your total is");
-            var sum = hand.Sum(card => card.GetCardValue());
-            Console.WriteLine(sum);
+            Console.WriteLine(handTotal);
         }
 
         private static void Spacer()
@@ -51,12 +50,12 @@ namespace BlackJack_PureFunc
             Console.WriteLine("Welcome to blackjack");
         }
         
-        public static void ShowPlayerHand(List<Card> hand)
+        public static void ShowPlayerHand(List<Card> hand, int handTotal)
         {
 
             Spacer();
             DisplayHand("Your Hand", hand);
-            DisplayHandTotal(hand);
+            DisplayHandTotal(hand, handTotal);
         }
 
         public static void ShowDealerHand(List<Card> hand, bool showOnlyFirst = true)
