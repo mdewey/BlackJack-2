@@ -52,7 +52,6 @@ namespace BlackJack_PureFunc.display
         
         public static void ShowPlayerHand(List<Card> hand, int handTotal)
         {
-
             Spacer();
             DisplayHand("Your Hand", hand);
             DisplayHandTotal(hand, handTotal);
